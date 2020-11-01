@@ -4,9 +4,8 @@ Learning React Native by building a Fokig Weather App
 
 
 ## Setting issue
-### expo start Error
->Message
->Error: react-native is not installed. Please run `npm install` or `yarn` in your project directory.
+### 'expo start' Error
+>Error Message: react-native is not installed. Please run `npm install` or `yarn` in your project directory.
 1. install yarn
 ~~~
 # npm i -g yarn
