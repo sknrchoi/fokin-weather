@@ -5,7 +5,8 @@ export default function App() {
   return (
     // bridge for native core
     <View style={styles.container}>
-      <Text style={styles.text}>Hello!</Text>
+      <View style={styles.yelloView}></View>
+      <View style={styles.blueView}></View>
     </View>
   );
 }
@@ -15,12 +16,14 @@ const styles = StyleSheet.create({
   // css for view content
   container: {
     flex: 1,
-    backgroundColor: "green",
-    alignItems: "center",
-    justifyContent: "center",
   },
-  // css for text content
-  text: {
-    color: "white"
+  // css for inner view content
+  yelloView: {
+    flex: 1,
+    backgroundColor: "yello"
+  },
+  blueView: {
+    flex: 3,
+    backgroundColor: "blue"
   }
 });
