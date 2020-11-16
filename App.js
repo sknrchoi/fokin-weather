@@ -1,10 +1,22 @@
 import React from "react";
+import { Alert } from "react-native";
 import Loading from "./Loading";
 import * as Location from "expo-location";
 
 export default class extends React.Component {
+  state = {
+    isLoading: true
+  };
   getLocation = async () => {
-    const location = await Location.getCurrentPositionAsync();
+    try {
+      await Location.requestPermissionsAsync();
+      const {
+        coords: {location, longitude}
+      } = await Location.getCurrentPositionAsync();
+      this.setState({ isLoading: false});
+    } catch (error) {
+      Alert.alert("Can't find you.", "So sad");
+    }
     console.log(location);
   }
   componentDidMount() {
@@ -12,6 +24,7 @@ export default class extends React.Component {
   }
   render() {
     // bridge for native core
-    return  <Loading/>;
+    const { isLoading }  = this.state;
+    return  isLoading ? <Loading/> : null;
   }
 }
